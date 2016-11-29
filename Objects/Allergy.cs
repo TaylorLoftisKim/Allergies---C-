@@ -6,17 +6,9 @@ namespace Allergy.Objects
     public class AllergyScore
     {
         private int _score;
-        private Dictionary<int, string> allergens = new Dictionary<int, string>
-        {
-            { 1, "eggs" },
-            { 2, "peanuts" },
-            { 4, "shellfish" },
-            { 8, "strawberries" },
-            { 16, "tomatoes" },
-            { 32, "chocolate" },
-            { 64, "pollen" },
-            { 128, "cats" }
-        };
+        private int[] _scores = new int[] { 128, 64, 32, 16, 8, 4, 2, 1 };
+        private string[] _allergens = new string[] { "cats", "pollen", "chocolate", "tomatoes", "strawberries", "shellfish", "peanuts", "eggs" };
+
         public AllergyScore(int score)
         {
             _score = score;
@@ -24,9 +16,8 @@ namespace Allergy.Objects
 
         public string FindAllergen()
         {
-            Console.WriteLine(_score.ToString());
-            Console.WriteLine(allergens[_score]);
-            return allergens[_score];
+            int index = Array.IndexOf(_scores, _score);
+            return _allergens[index];
         }
     }
 }
