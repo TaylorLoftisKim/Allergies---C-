@@ -5,11 +5,11 @@ using Nancy;
 
 namespace Allergy
 {
-  public class HomeModule : NancyModule
-  {
-    public HomeModule()
+    public class HomeModule : NancyModule
     {
+        public HomeModule()
+        {
 
+        }
     }
-  }
 }

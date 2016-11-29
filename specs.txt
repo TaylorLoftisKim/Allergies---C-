@@ -1,0 +1,19 @@
+This program will allow users to input an allergy score for a single allergy.
+Example Input: 8;
+Example Output: Strawberries;
+
+The user can input an allergy score, and the program will return the first allergy with a score lower than the user's.
+Example Input: 9;
+Example Output: Strawberries;
+
+The program will take the user's allergy score and return the first allergy with a score lower than the user's, any remainders will also be calculated.
+Example Input: 9;
+Example Output: Strawberries, 1;
+
+This program will take the remainder and calculate it for multiple allergies.
+Example Input: 9;
+Example Output: Strawberries, Eggs;
+
+The program rejects allergy scores above 255.
+Example Input: 256;
+Example Output: "Enter a valid score!";
