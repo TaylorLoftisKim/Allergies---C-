@@ -8,6 +8,7 @@ namespace Allergy.Objects
         private int _score;
         private int[] _scores = new int[] { 128, 64, 32, 16, 8, 4, 2, 1 };
         private string[] _allergens = new string[] { "cats", "pollen", "chocolate", "tomatoes", "strawberries", "shellfish", "peanuts", "eggs" };
+        private List<string> _whichAllergens = new List<string> {};
 
         public AllergyScore(int score)
         {
@@ -19,7 +20,7 @@ namespace Allergy.Objects
             return _score;
         }
 
-        public string FindAllergen()
+        public List<string> FindAllergen()
         {
             int whichNumber = 0;
             foreach(int number in _scores)
@@ -27,15 +28,19 @@ namespace Allergy.Objects
                 if(_score >= number)
                 {
                     whichNumber = number;
-                    Console.WriteLine("number: " + whichNumber);
                     break;
                 }
             }
             int index = Array.IndexOf(_scores, whichNumber);
-            Console.WriteLine("allergen: " + _allergens[index]);
-            string whichAllergen = _allergens[index];
+            Console.WriteLine("index: " + index + ", whichAllergensLength: " + _whichAllergens.Count + ", whichNumber: " + whichNumber);
+            _whichAllergens.Add(_allergens[index]);
             _score -= whichNumber;
-            return whichAllergen;
+            Console.WriteLine("score: " + _score);
+            if(_score > 0)
+            {
+                FindAllergen();
+            }
+            return _whichAllergens;
         }
     }
 }
