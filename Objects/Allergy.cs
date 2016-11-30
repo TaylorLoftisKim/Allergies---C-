@@ -16,7 +16,18 @@ namespace Allergy.Objects
 
         public string FindAllergen()
         {
-            int index = Array.IndexOf(_scores, _score);
+            int whichNumber = 0;
+            foreach(int number in _scores)
+            {
+                if(_score >= number)
+                {
+                    whichNumber = number;
+                    Console.WriteLine("number: " + whichNumber);
+                    break;
+                }
+            }
+            int index = Array.IndexOf(_scores, whichNumber);
+            Console.WriteLine("allergen: " + _allergens[index]);
             return _allergens[index];
         }
     }
