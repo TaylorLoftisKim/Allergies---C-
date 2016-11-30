@@ -14,6 +14,11 @@ namespace Allergy.Objects
             _score = score;
         }
 
+        public int GetScore()
+        {
+            return _score;
+        }
+
         public string FindAllergen()
         {
             int whichNumber = 0;
@@ -28,7 +33,9 @@ namespace Allergy.Objects
             }
             int index = Array.IndexOf(_scores, whichNumber);
             Console.WriteLine("allergen: " + _allergens[index]);
-            return _allergens[index];
+            string whichAllergen = _allergens[index];
+            _score -= whichNumber;
+            return whichAllergen;
         }
     }
 }
